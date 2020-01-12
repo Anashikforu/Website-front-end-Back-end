@@ -57,7 +57,7 @@ class ServicesController extends Controller
      * @param  \App\Services  $services
      * @return \Illuminate\Http\Response
      */
-    public function edit(Services $services)
+    public function edit($services)
     {
         //
         $services = Services::find($services);
@@ -87,7 +87,7 @@ class ServicesController extends Controller
         $services->content = $request->editor;
         $services->save();
 
-        return Redirect::to("admin/pages/services/$services->id/edit")->withSuccess('Section '.$services->id.' has been successfully Updated!!!!'); ;
+        return Redirect::to("admin/pages/services/$services->id/edit")->withSuccess(' '.$services->name.' has been successfully Updated!!!!'); ;
     }
 
     /**

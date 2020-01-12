@@ -284,48 +284,19 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center">
-                    <i class="icon-laptop"></i>
-                    <h3>Web Design</h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center">
-                    <i class="icon-pencil"></i>
-                    <h3>Development </h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center">
-                    <i class="icon-camera"></i>
-                    <h3>Photography</h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center">
-                    <i class="icon-linegraph "></i>
-                    <h3>Branding</h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center">
-                    <i class="icon-gears "></i>
-                    <h3>Support</h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-service white-bg text-center xs-service">
-                    <i class="icon-briefcase "></i>
-                    <h3>Marketing</h3>
-                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex fuga platea eveniet pulvinar praesent </p>
-                </div>
-            </div>
+            @foreach ($services as $item)
+                @if ($item->name ==="Background Picture")
+
+                @else
+                    <div class="col-md-4 col-sm-6">
+                        <div class="single-service white-bg text-center">
+                            <i class="icon-laptop"></i>
+                            <h3>{{$item->heading}}</h3>
+                            {!!$item->content!!}
+                        </div>
+                    </div>
+                @endif
+            @endforeach
         </div>
     </div>
 </div>

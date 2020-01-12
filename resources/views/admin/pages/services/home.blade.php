@@ -7,19 +7,14 @@
         <label for="defaultSelect">Section</label>
         <br>
         <td>
-            <a onclick="myFunction(this)" href="{{ route('services.edit',1)}}" class="btn btn-primary">1</a>
-            <a onclick="myFunction(this)" href="{{ route('services.edit',2)}}" class="btn btn-primary">2</a>
-            <a onclick="myFunction(this)" href="{{ route('services.edit',3)}}" class="btn btn-primary">3</a>
-            <a onclick="myFunction(this)" href="{{ route('services.edit',4)}}" class="btn btn-primary">4</a>
-            <a onclick="myFunction(this)" href="{{ route('services.edit',5)}}" class="btn btn-primary">5</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',1)}}" class="btn btn-primary">Background Picture</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',2)}}" class="btn btn-primary">Content 1</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',3)}}" class="btn btn-primary">Content 2</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',4)}}" class="btn btn-primary">Content 3</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',5)}}" class="btn btn-primary">Content 4</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',6)}}" class="btn btn-primary">Content 5</a>
+            <a onclick="myFunction(this)" href="{{ route('services.edit',7)}}" class="btn btn-primary">Content 6</a>
         </td>
-        {{-- <select class="form-control form-control" id="defaultSelect">
-            <option href="{{ route('services.edit',1)}}">1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select> --}}
     </div>
 
 

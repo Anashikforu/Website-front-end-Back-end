@@ -34,9 +34,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat2 cat3">
                         <div class="portfolio hover-style another-hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/5.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/5.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/5.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/5.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -50,9 +50,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat1">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/6.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/6.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/6.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/6.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -66,9 +66,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat3">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/9.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/9.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/9.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/9.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -82,9 +82,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat2 cat3">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/7.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/7.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/7.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/7.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -98,9 +98,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat3">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/8.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/8.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/8.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/8.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -114,9 +114,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat1">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/10.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/10.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/10.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/10.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -130,9 +130,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat1">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/11.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/11.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/11.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/11.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
@@ -146,9 +146,9 @@
                     <div class="col-md-3 col-sm-6 col-xs-12 grid-item cat1">
                         <div class="portfolio hover-style">
                             <div class="portfolio-img">
-                                <img src="img/portfolio/style-5/12.jpg" alt="" />
+                                <img src="{{ asset('/') }}img/portfolio/style-5/12.jpg" alt="" />
                                 <div class="portfolio-view">
-                                    <a class="img-poppu" href="img/portfolio/style-5/12.jpg">
+                                    <a class="img-poppu" href="{{ asset('/') }}img/portfolio/style-5/12.jpg">
                                         <i class="fa fa-search-plus"></i>
                                     </a>
                                 </div>
