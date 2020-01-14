@@ -16,7 +16,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        return view("admin.pages.products.home");
+        $product=Product::all();
+        return view("admin.pages.products.home",compact('product'));
     }
 
     /**
@@ -27,6 +28,7 @@ class ProductController extends Controller
     public function create()
     {
         //
+        return view("admin.pages.products.create");
     }
 
     /**
@@ -38,6 +40,21 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        $product = new Product;
+
+        if ($request->hasFile('image')) {
+            $product->image = $request->image->store('public/products/image');
+        }
+        $product->heading = $request->heading;
+        $product->content = $request->editor;
+        $product->save();
+
+        return Redirect::to("admin/pages/product/")->with('success', 'Sucessfully uploaded! ');;
     }
 
     /**
@@ -71,7 +88,7 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $product)
     {
         //
         $request->validate([
@@ -87,7 +104,7 @@ class ProductController extends Controller
         $product->content = $request->editor;
         $product->save();
 
-        return Redirect::to("admin/pages/product/$product->id/edit")->withSuccess('Section '.$product->id.' has been successfully Updated!!!!'); ;
+        return Redirect::to("admin/pages/product/")->withSuccess('Successfully Updated!!!!'); ;
     }
 
     /**
@@ -96,8 +113,10 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy( $id)
     {
         //
+        Product::where('id',$id)->delete();
+        return redirect('admin/pages/product/')->with('success', 'Deleted Sucessfully! ');
     }
 }

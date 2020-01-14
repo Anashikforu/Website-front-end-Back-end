@@ -5,15 +5,15 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="breadcrumbs">
-                        <h2 class="page-title">Portfolio Card Style</h2>
+                        <h2 class="page-title">PRODUCTS And DESCRIPTION</h2>
                         <ul>
                             <li>
                                 <a class="active" href="#">Home</a>
                             </li>
                             <li>
-                                <a class="active2" href="#">portfolio</a>
+                                <a class="active2" href="#">products</a>
                             </li>
-                            <li>portfolio 4</li>
+                            <li>products 4</li>
                         </ul>
                     </div>
                 </div>

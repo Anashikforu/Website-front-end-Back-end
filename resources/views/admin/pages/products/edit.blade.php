@@ -3,23 +3,7 @@
 @section('content')
 <div class="content">
     <div class="form-group">
-        <h1>Products</h1><br>
-        <label for="defaultSelect">Section</label>
-        <br>
-        <td>
-            <a onclick="myFunction(this)" href="{{ route('about.edit',1)}}" class="btn btn-primary">1</a>
-            <a onclick="myFunction(this)" href="{{ route('about.edit',2)}}" class="btn btn-primary">2</a>
-            <a onclick="myFunction(this)" href="{{ route('about.edit',3)}}" class="btn btn-primary">3</a>
-            <a onclick="myFunction(this)" href="{{ route('about.edit',4)}}" class="btn btn-primary">4</a>
-            <a onclick="myFunction(this)" href="{{ route('about.edit',5)}}" class="btn btn-primary">5</a>
-        </td>
-        {{-- <select class="form-control form-control" id="defaultSelect">
-            <option href="{{ route('about.edit',1)}}">1</option>
-            <option href="{{ route('about.edit',2)}}">2</option>
-            <option href="{{ route('about.edit',3)}}">3</option>
-            <option href="{{ route('about.edit',4)}}">4</option>
-            <option href="{{ route('about.edit',5)}}">5</option>
-        </select> --}}
+        <h1>Product</h1><br>
     </div>
 
         <div class="form-group">
@@ -30,24 +14,20 @@
                 </div>
             @endif
 
-            <form id="file-upload-form" class="uploader"  action="{{ route('about.update', $about->id) }}"  method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+            <form id="file-upload-form" class="uploader"  action="{{ route('product.update', $product->id) }}"  method="POST" accept-charset="utf-8" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
-                <h3> <b> Section {{$about->id}}</b></h3>
+                <h3> <b> Section {{$product->id}}</b></h3>
                 <br>
                 <label for="heading">Headline</label>
-                <textarea class="form-control" id="heading" name="heading" rows="1"  >
-                    {{ $about->heading }}
-                </textarea>
+                <textarea class="form-control" id="heading" name="heading" rows="1"  >{{ $product->heading }}</textarea>
                 <br>
                 <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="editor"  >
-                    {{ $about->content }}
-                </textarea>
+                <textarea class="form-control" id="editor" name="editor"  >{{ $product->content }}</textarea>
                 <br>
                 <label for="file-input">Featured Picture</label>
                 <br>
-                <img src=" {{Storage::url( $about->image)}} " height="30%" width="30%">
+                <img src=" {{Storage::url( $product->image)}} " height="30%" width="30%">
                 <br>
                 <br>
                 <input type="file" id="file-input" name="image" multiple />
@@ -61,24 +41,4 @@
 
 @endsection
 
-@push('js')
-    <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>
-    <script>
-        let theEditor;
-        ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .then( editor => {
-                        theEditor = editor;
-                } )
-                .catch( error => {
-                        console.error( error );
-                } );
 
-                // function getDataFromTheEditor() {
-                // alert(theEditor.getData());
-                // }
-                function myFunction(x) {
-                x.classList.toggle("btn-success");
-                }
-    </script>
-@endpush
