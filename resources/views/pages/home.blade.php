@@ -92,117 +92,41 @@
             <h2>our works</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
         </div>
-        <div class="portfolio-menu portfolio-left-menu text-center mb-50">
-            <button class="active" data-filter="*">ALL</button>
-            <button data-filter=".cat1">Graphic </button>
-            <button data-filter=".cat2">Web Design</button>
-            <button data-filter=".cat3">Branding </button>
-        </div>
-        <div class="row portfolio-style-2">
-            <div class="grid">
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat1">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/1.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
+        <div class="portfolio-area ptb-90">
+            <div class="container">
+                <div class="portfolio-menu text-center mb-50">
+                    <button class="active" data-filter="*">ALL</button>
+                    <button data-filter=".cat1">DEVELOPMENT</button>
+                    <button data-filter=".cat2">WORK</button>
                 </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat2 cat3">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/2.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat1">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/3.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat2">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/4.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat1">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/5.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat3">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/6.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat2 cat3">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/7.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat3">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/8.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 col-xs-12 grid-item cat1">
-                    <div class="portfolio hover-style">
-                        <div class="portfolio-img">
-                            <img src="img/portfolio/9.jpg" alt="" />
-                        </div>
-                        <div class="portfolio-title text-center">
-                            <h3><a href="#">TITLE GOES HERE</a></h3>
-                            <span>Development</span>
-                        </div>
+                <div class="row portfolio-style-2">
+                    <div class="grid">
+                        @foreach ($products as $item)
+                            @if ($item->name ==="Background Picture")
+
+                            @else
+                                <div class="col-md-3 col-sm-6 col-xs-12 grid-item {{ ($item->content === "Development") ? 'cat1' : 'cat2' }}  ">
+                                    <div class="portfolio hover-style another-hover-style">
+                                        <div class="portfolio-img">
+                                            <img src=" {{Storage::url( $item->image)}} " alt="" />
+                                            <div class="portfolio-view">
+                                                <a class="img-poppu" href="{{Storage::url( $item->image)}}">
+                                                    <i class="fa fa-search-plus"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="another-portfolio-title text-center">
+                                            <h3><a href="#">{{$item->heading}}</a></h3>
+                                            <span>{{$item->content}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="view-more text-center">
-            <a href="#">view more</a>
         </div>
     </div>
 </div>

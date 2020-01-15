@@ -50,6 +50,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $product->image = $request->image->store('public/products/image');
         }
+        $product->name = "Product";
         $product->heading = $request->heading;
         $product->content = $request->editor;
         $product->save();
@@ -100,6 +101,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $product->image = $request->image->store('public/products/image');
         }
+
         $product->heading = $request->heading;
         $product->content = $request->editor;
         $product->save();

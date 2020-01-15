@@ -14,7 +14,8 @@ class PageController extends Controller
         $homepage = DB::table('homepages')->get();
         $about = DB::table('abouts')->get();
         $services = DB::table('services')->get();
-        return view('pages.home',['homepage' => $homepage,'about' => $about,'services' => $services]);
+        $products = DB::table('products')->get();
+        return view('pages.home',['homepage' => $homepage,'about' => $about,'services' => $services],['products' => $products]);
     }
 
     public function about()
@@ -34,7 +35,8 @@ class PageController extends Controller
     public function products()
     {
         //
-        return view('pages.products');
+        $products = DB::table('products')->get();
+        return view('pages.products',['products' => $products]);
     }
 
     public function uses()

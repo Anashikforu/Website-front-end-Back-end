@@ -29,11 +29,8 @@
 										<li><a href="{{ url('/page/about') }}">ABOUT US</a></li>
 										<li><a href="{{ url('/page/products', []) }}">PRODUCTS & FACILITIES <i aria-hidden="true"></i></a>
 											<ul>
-												<li><a href="box-card-portfolio-4.html">Porduct 1</a></li>
-												<li><a href="box-card-portfolio-4.html">Product 2</a></li>
-												<li><a href="box-card-portfolio-4.html">Product 3</a></li>
-												<li><a href="box-card-portfolio-4.html">Product 4</a></li>
-												<li><a href="box-card-portfolio-4.html">Product 5</a></li>
+												<li><a href="{{ url('/page/products', []) }}">Development</a></li>
+												<li><a href="{{ url('/page/products', []) }}">Work</a></li>
 											</ul>
 										</li>
 										<li><a href="{{ url('page/uses' ) }}">USES <i aria-hidden="true"></i></a>
@@ -47,7 +44,7 @@
 										</li>
                                         <li ><a href="{{ url('/page/services') }}">services</a>
                                             <ul style="width: 500% !important">
-												<li ><a {{ url('/page/services') }}>Why buyer's should approach NAMFA?</a></li>
+												<li ><a href="{{ url('/page/services') }}">Why buyer's should approach NAMFA?</a></li>
 											</ul>
                                         </li>
 									</ul>

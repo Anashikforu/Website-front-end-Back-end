@@ -37,15 +37,18 @@
                 @csrf
                 <h3> <b> {{$services->name}}</b></h3>
                 <br>
-                <label for="heading">Headline</label>
-                <textarea class="form-control" id="heading" name="heading" rows="1"  >{{ $services->heading }}</textarea>
-                <br>
-                <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="editor"  >{{ $services->content }}</textarea>
-                <br>
+                @if ($services->name ==="Background Picture")
+
+                @else
+                    <label for="heading">Headline</label>
+                    <textarea class="form-control" id="heading" name="heading" rows="1"  >{{ $services->heading }}</textarea>
+                    <br>
+                    <label for="editor">Content</label>
+                    <textarea class="form-control" id="editor" name="editor"  >{{ $services->content }}</textarea>
+                    <br>
+                @endif
 
                 @if ($services->name ==="Background Picture")
-                    <label for="file-input">Featured Picture</label>
                     <br>
                     <img src=" {{Storage::url( $services->image)}} " height="30%" width="30%">
                     <br>

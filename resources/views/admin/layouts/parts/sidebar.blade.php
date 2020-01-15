@@ -50,14 +50,14 @@
                     </span>
                     <h4 class="text-section">Settings</h4>
                 </li>
-                <li class="nav-item">
+                <li class=" nav-item {{ (request()->segment(2) == 'pages') ? 'active' : '' }}">
                     <a data-toggle="collapse" href="#base">
                         <i class="fas fa-layer-group"></i>
-                        <p>Posts</p>
+                        <p >Posts</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="base">
-                        <ul class="nav nav-collapse">
+                        <ul class="nav nav-collapse" >
                             <li>
                                 <a href="{{ url('/admin/pages/home') }}">
                                     <span class="sub-item">Home</span>

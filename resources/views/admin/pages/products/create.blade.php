@@ -15,8 +15,13 @@
                 <label for="heading">Headline</label>
                 <textarea class="form-control" id="heading" name="heading" rows="1"></textarea>
                 <br>
-                <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="editor" rows="1"></textarea>
+                <label for="editor">Category :</label>
+                <select class="form-control" id="editor" name="editor">
+                    <option value=" ">------Select------</option>
+                    <option value="Development">Development</option>
+                    <option value="Work">Work</option>
+                </select>
+                <br>
                 <br>
                 <label for="file-input">Featured Picture</label>
                 <br>
@@ -24,7 +29,7 @@
                 <span class="text-danger">{{ $errors->first('image') }}</span>
                 <div id="thumb-output"></div>
                 <br>
-                <button class="btn btn-success" id="getData" >Submit</button>
+                <button class="btn btn-success" id="submit" >Submit</button>
             </form>
         </div>
 </div>
