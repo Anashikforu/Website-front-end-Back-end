@@ -16,7 +16,8 @@ class UsesController extends Controller
     public function index()
     {
         //
-        return view("admin.pages.uses.home");
+        $uses=Uses::all();
+        return view("admin.pages.uses.home",compact('uses'));
     }
 
     /**
@@ -27,6 +28,7 @@ class UsesController extends Controller
     public function create()
     {
         //
+        return view("admin.pages.uses.create");
     }
 
     /**
@@ -38,6 +40,23 @@ class UsesController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        $uses = new Uses;
+
+        if ($request->hasFile('image')) {
+            $uses->image = $request->image->store('public/uses/image');
+        }
+        $uses->name = "Blog";
+        $uses->author = $request->author;
+        $uses->heading = $request->heading;
+        $uses->content = $request->editor;
+        $uses->save();
+
+        return Redirect::to("admin/pages/uses/")->with('success', 'Sucessfully uploaded! ');;
     }
 
     /**
@@ -49,6 +68,7 @@ class UsesController extends Controller
     public function show(Uses $uses)
     {
         //
+
     }
 
     /**
@@ -78,16 +98,19 @@ class UsesController extends Controller
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
 
         ]);
+
         $uses = Uses::find($uses);
 
         if ($request->hasFile('image')) {
             $uses->image = $request->image->store('public/uses/image');
         }
+        $uses->name = "Blog";
+        $uses->author = $request->author;
         $uses->heading = $request->heading;
         $uses->content = $request->editor;
         $uses->save();
 
-        return Redirect::to("admin/pages/uses/$uses->id/edit")->withSuccess('Section '.$uses->id.' has been successfully Updated!!!!'); ;
+        return Redirect::to("admin/pages/uses/")->with('success', 'Sucessfully Updated! ');;
     }
 
     /**
@@ -96,8 +119,10 @@ class UsesController extends Controller
      * @param  \App\Uses  $uses
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Uses $uses)
+    public function destroy( $uses)
     {
         //
+        Uses::where('id',$uses)->delete();
+        return redirect('admin/pages/uses/')->with('success', 'Deleted Sucessfully!! ');
     }
 }

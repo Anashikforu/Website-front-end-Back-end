@@ -2,53 +2,73 @@
 
 @section('content')
 <div class="content">
-    <div class="form-group">
-        <h1>Uses</h1><br>
-        <label for="defaultSelect">Section</label>
-        <br>
-        <td>
-            <a onclick="myFunction(this)" href="{{ route('uses.edit',1)}}" class="btn btn-primary">1</a>
-            <a onclick="myFunction(this)" href="{{ route('uses.edit',2)}}" class="btn btn-primary">2</a>
-            <a onclick="myFunction(this)" href="{{ route('uses.edit',3)}}" class="btn btn-primary">3</a>
-            <a onclick="myFunction(this)" href="{{ route('uses.edit',4)}}" class="btn btn-primary">4</a>
-            <a onclick="myFunction(this)" href="{{ route('uses.edit',5)}}" class="btn btn-primary">5</a>
-        </td>
-        {{-- <select class="form-control form-control" id="defaultSelect">
-            <option href="{{ route('uses.edit',1)}}">1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select> --}}
-    </div>
-
-
         <div class="form-group">
+            <h1>USE</h1><br>
+            <div>
+                <a href="{{ route('uses.create')}}" class="btn btn-info btn-xs">New Blog</a>
+            </div>
+            <br>
+            <div >
+                @if(session()->get('success'))
+                  <div class="alert alert-success">
+                    {{ session()->get('success') }}
+                  </div>
+                  <br>
+                @endif
+                <div class="row">
+                    @foreach ($uses as $item)
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-part mb-60">
+                                <hr>
+                                <div class="blog-img">
+                                    <a href="#"> <img src="{{Storage::url($item->image)}}" alt="" width="600px" height="350px"/></a>
+                                </div>
+                                <hr>
+                                <div class="blog-info">
+                                    <div class="blog-meta">
+                                        <a>
+                                            <i class="fa fa-user"></i>
+                                            {{$item->author}}
+                                        </a>
+                                        <a>
+                                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{$item->created_at}}
+                                        </a>
+                                    </div>
+                                    <hr>
+                                    <h3>{{$item->heading}}</h3>
+                                    {!!$item->content!!}
+                                    <hr>
+                                    <div class="row">
+                                        <a href="{{ route('uses.edit',$item->id)}}" class="btn btn-xs btn-primary"  style=" margin:5px;">Edit</a>
+                                        <form action="{{ route('uses.destroy', $item->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-xs" style=" margin:5px;" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 
-            <form id="file-upload-form" class="uploader"  action="{{url('admin/pages/uses')}}"  method="post" accept-charset="utf-8" enctype="multipart/form-data">
-                @csrf
-                <label for="heading">Headline</label>
-                <textarea class="form-control" id="heading" name="heading" rows="1">
-
-                </textarea>
-                <br>
-                <label for="editor">Content</label>
-                <textarea class="form-control" id="editor" name="editor">
-
-                </textarea>
-                <br>
-                <label for="file-input">Featured Picture</label>
-                <br>
-                <input type="file" id="file-input" name="image" multiple />
-                <span class="text-danger">{{ $errors->first('image') }}</span>
-                <div id="thumb-output"></div>
-                <br>
-                <button class="btn btn-success" id="getData" >Submit</button>
-            </form>
+                </div>
+            </div>
         </div>
 </div>
 
+
 @endsection
+
+
+@push('css')
+<style>
+    .modal-body {
+    width: 300%;
+}
+</style>
+@endpush
 
 @push('js')
     <script src="https://cdn.ckeditor.com/ckeditor5/16.0.0/classic/ckeditor.js"></script>

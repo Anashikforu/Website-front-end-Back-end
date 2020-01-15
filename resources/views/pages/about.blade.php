@@ -8,7 +8,7 @@
                         <h2 class="page-title">About Us</h2>
                         <ul>
                             <li>
-                                <a class="active" href="#">Home</a>
+                                <a class="active" href="{{ url('/', []) }}">Home</a>
                             </li>
                             <li>About</li>
                         </ul>

@@ -50,35 +50,35 @@
                     </span>
                     <h4 class="text-section">Settings</h4>
                 </li>
-                <li class=" nav-item {{ (request()->segment(2) == 'pages') ? 'active' : '' }}">
+            <li class="nav-item {{Request::is("*pages*") ?  'active submenu' : ''}}">
                     <a data-toggle="collapse" href="#base">
                         <i class="fas fa-layer-group"></i>
                         <p >Posts</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="base">
+                    <div class="collapse {{ (request()->segment(2) == 'pages') ? 'show' : '' }}" id="base">
                         <ul class="nav nav-collapse" >
-                            <li>
+                            <li class="sub-item {{ (request()->segment(3) == 'home') ? 'active' : '' }} ">
                                 <a href="{{ url('/admin/pages/home') }}">
                                     <span class="sub-item">Home</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="sub-item {{Request::is("*about") ?  'active ' : ''}}">
                                 <a href="{{ url('/admin/pages/about') }}">
                                     <span class="sub-item">About Us</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="sub-item {{ (request()->segment(3) == 'product') ? 'active' : '' }}">
                                 <a href="{{ url('/admin/pages/product') }}">
                                     <span class="sub-item">Products & Facilities</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="sub-item {{ (request()->segment(3) == 'uses') ? 'active' : '' }} ">
                                 <a href="{{ url('/admin/pages/uses') }}">
                                     <span class="sub-item">Uses</span>
                                 </a>
                             </li>
-                            <li>
+                            <li class="sub-item {{ (request()->segment(3) == 'services') ? 'active' : '' }}">
                                 <a href="{{ url('/admin/pages/services') }}">
                                     <span class="sub-item">Services</span>
                                 </a>
@@ -86,13 +86,13 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="widgets.html">
                         <i class="fas fa-desktop"></i>
                         <p>Manage Access</p>
                         <span class="badge badge-success">4</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>

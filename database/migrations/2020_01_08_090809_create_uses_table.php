@@ -16,8 +16,9 @@ class CreateUsesTable extends Migration
         Schema::create('uses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+            $table->string('author')->nullable();
             $table->string('heading')->nullable();
-            $table->string('content')->nullable(); ;
+            $table->string('content')->nullable();
             $table->string('image', 80)->nullable();
             $table->timestamps();
         });

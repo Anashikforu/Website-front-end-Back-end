@@ -15,43 +15,40 @@
                   </div>
                   <br>
                 @endif
-                <table class="table">
-                  <thead>
-                      <tr>
-                        <td>ID</td>
-                        <td>Name</td>
-                        <td>Headline</td>
-                        <td>Content</td>
-                        <td>Image</td>
-                        <td colspan="2">Action</td>
-                      </tr>
-                  </thead>
-                  <tbody>
-                      @foreach($product as $product)
-                      <tr>
-                          <td>{{$product->id}}</td>
-                          <td style="width: 15% !important">{{$product->name}}</td>
-                          <td style="width: 15% !important">{{$product->heading}}</td>
-                          <td>{{$product->content}}</td>
-                          <td>
-                              @if ( $product->image === NULL)
-                                No Image
-                              @else
-                                <img src=" {{Storage::url( $product->image)}} " height="100%" width="30%">
-                              @endif
-                          </td>
-                          <td><a href="{{ route('product.edit',$product->id)}}" class="btn btn-xs btn-primary">Edit</a></td>
-                          <td>
-                              <form action="{{ route('product.destroy', $product->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger btn-xs" type="submit">Delete</button>
-                              </form>
-                          </td>
-                      </tr>
-                      @endforeach
-                  </tbody>
-                </table>
+                <div class="row">
+                    @foreach ($product as $item)
+                        <div class="col-md-6 col-sm-6">
+                            <div class="blog-part mb-60">
+                                <hr>
+                                <div class="blog-img">
+                                    <a href="#"> <img src="{{Storage::url($item->image)}}" alt="" width="600px" height="350px"/></a>
+                                </div>
+                                <hr>
+                                <div class="blog-info">
+                                    <div class="blog-meta">
+                                        <a>
+                                            <i class="fa fa-star"></i>
+                                            {{$item->name}}
+                                        </a>
+                                    </div>
+                                    <hr>
+                                    <h3>{{$item->heading}}</h3>
+                                     <p href="">Category - {!!$item->content!!} </p>
+                                    <hr>
+                                    <div class="row">
+                                        <a href="{{ route('product.edit',$item->id)}}" class="btn btn-xs btn-primary"  style=" margin:5px;">Edit</a>
+                                        <form action="{{ route('product.destroy', $item->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger btn-xs" style=" margin:5px;" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </div>
 </div>

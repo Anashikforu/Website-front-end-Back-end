@@ -265,42 +265,20 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor</p>
         </div>
         <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="single-blog mb-30">
-                    <a href="blog-details.html">
-                        <img src="img/blog/1.jpg" alt="">
-                    </a>
-                    <div class="blog-title">
-                        <span>December 8, 2017</span>
-                        <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
-                        <a href="blog-details.html">read more</a>
+            @foreach ($uses as $item)
+                <div class="col-md-4 col-sm-6">
+                    <div class="single-blog mb-30">
+                        <a href="#">
+                            <img src="{{Storage::url($item->image)}}" alt="" />
+                        </a>
+                        <div class="blog-title">
+                            <span>{{$item->created_at}}</span>
+                            <h3><a href="#">{{$item->heading}}</a></h3>
+                            <a href="#">read more</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="single-blog mb-30">
-                    <a href="blog-details.html">
-                        <img src="img/blog/2.jpg" alt="">
-                    </a>
-                    <div class="blog-title">
-                        <span>December 8, 2017</span>
-                        <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
-                        <a href="blog-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 hidden-sm">
-                <div class="single-blog mb-30">
-                    <a href="blog-details.html">
-                        <img src="img/blog/3.jpg" alt="">
-                    </a>
-                    <div class="blog-title">
-                        <span>December 8, 2017</span>
-                        <h3><a href="blog-details.html">Lorem Ipsum is simply dummy</a></h3>
-                        <a href="blog-details.html">read more</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

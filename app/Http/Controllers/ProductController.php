@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product->content = $request->editor;
         $product->save();
 
-        return Redirect::to("admin/pages/product/")->with('success', 'Sucessfully uploaded! ');;
+        return Redirect::to("admin/pages/product/")->with('success', 'Sucessfully uploaded! ');
     }
 
     /**
