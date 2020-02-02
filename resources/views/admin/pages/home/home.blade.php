@@ -11,7 +11,6 @@
             <a onclick="myFunction(this)" href="{{ route('home.edit',2)}}" class="btn btn-primary">Background Picture 2</a>
             <a onclick="myFunction(this)" href="{{ route('home.edit',3)}}" class="btn btn-primary">Background Picture 3</a>
             <a onclick="myFunction(this)" href="{{ route('home.edit',4)}}" class="btn btn-primary">Section Picture</a>
-            <a onclick="myFunction(this)" href="{{ route('home.edit',5)}}" class="btn btn-primary">Content</a>
         </td>
         {{-- <select class="form-control form-control" id="defaultSelect">
             <option href="{{ route('home.edit',1)}}">1</option>
